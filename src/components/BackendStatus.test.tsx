@@ -22,15 +22,17 @@ describe('BackendStatus', () => {
     );
   });
 
-  it('displays connected state on successful healthcheck response', async () => {
+  it('displays connected state and database status on successful healthcheck response', async () => {
     global.fetch = vi.fn(() =>
       Promise.resolve({
         ok: true,
+        headers: new Headers({ 'content-type': 'application/json' }),
         json: () =>
           Promise.resolve({
             status: 'ok',
             service: 'devlearn-backend',
             version: '1.0.0',
+            database: 'connected',
           }),
       })
     ) as unknown as typeof fetch;
@@ -38,9 +40,9 @@ describe('BackendStatus', () => {
     render(<BackendStatus />);
 
     await waitFor(() => {
-      expect(screen.getByTestId('backend-status-text').textContent).toContain(
-        'Connected (devlearn-backend)'
-      );
+      const text = screen.getByTestId('backend-status-text').textContent;
+      expect(text).toContain('Connected (devlearn-backend)');
+      expect(text).toContain('Database: connected');
     });
 
     const indicator = screen.getByTestId('backend-status-indicator');

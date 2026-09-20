@@ -1,61 +1,57 @@
 import { useEffect, useState } from 'react';
+import { getHealthStatus, HealthResponse } from '../services/api/health.service';
 
-export interface HealthStatus {
-  status: string;
-  service?: string;
-  timestamp?: string;
-}
-
-interface BackendStatusProps {
-  apiBaseUrl?: string;
-}
-
-export function BackendStatus({
-  apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '',
-}: BackendStatusProps) {
-  const [backendStatus, setBackendStatus] = useState<HealthStatus | null>(null);
+export function BackendStatus() {
+  const [backendStatus, setBackendStatus] = useState<HealthResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = apiBaseUrl
-      ? `${apiBaseUrl.replace(/\/$/, '')}/api/v1/health`
-      : '/api/v1/health';
+    let isMounted = true;
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error('API unreachable');
-        return res.json();
-      })
-      .then((data: HealthStatus) => {
-        setBackendStatus(data);
-        setLoading(false);
+    getHealthStatus()
+      .then((data) => {
+        if (isMounted) {
+          setBackendStatus(data);
+          setLoading(false);
+        }
       })
       .catch(() => {
-        setBackendStatus(null);
-        setLoading(false);
+        if (isMounted) {
+          setBackendStatus(null);
+          setLoading(false);
+        }
       });
-  }, [apiBaseUrl]);
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div
       data-testid="backend-status"
-      className="mt-6 flex items-center gap-3 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 text-xs"
+      className="mt-6 flex flex-col gap-2 rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] p-3.5 text-xs sm:flex-row sm:items-center sm:gap-3"
     >
-      <span
-        data-testid="backend-status-indicator"
-        className={`h-2.5 w-2.5 rounded-full ${
-          backendStatus ? 'bg-[var(--color-progress)]' : 'bg-[var(--color-text-muted)]'
-        }`}
-        aria-hidden="true"
-      />
-      <span className="font-medium text-[var(--color-text-primary)]">
-        Backend API Status:
-      </span>
+      <div className="flex items-center gap-2">
+        <span
+          data-testid="backend-status-indicator"
+          className={`h-2.5 w-2.5 rounded-full ${
+            backendStatus ? 'bg-[var(--color-progress)]' : 'bg-[var(--color-text-muted)]'
+          }`}
+          aria-hidden="true"
+        />
+        <span className="font-medium text-[var(--color-text-primary)]">
+          Backend API Status:
+        </span>
+      </div>
+
       <span data-testid="backend-status-text" className="text-[var(--color-text-muted)]">
         {loading
           ? 'Connecting to backend...'
           : backendStatus
-            ? `Connected (${backendStatus.service || 'backend ok'})`
+            ? `Connected (${backendStatus.service || 'backend ok'})${
+                backendStatus.database ? ` • Database: ${backendStatus.database}` : ''
+              }`
             : 'Backend offline (run backend on port 4000)'}
       </span>
     </div>

@@ -18,7 +18,7 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
-        { allowConstantExport: true, allowExportNames: ['useTheme'] },
+        { allowConstantExport: true, allowExportNames: ['useTheme', 'useAuth'] },
       ],
       'jsx-a11y/alt-text': 'error',
       'jsx-a11y/aria-props': 'error',
