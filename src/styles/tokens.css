@@ -1,0 +1,37 @@
+/* DevLearn Semantic Design Tokens */
+:root {
+  /* Dark Mode (Default) */
+  --color-bg: #212121;
+  --color-surface: #2b2b2b;
+  --color-surface-hover: #383838;
+  --color-border: #4a4a4a;
+  --color-text-primary: #f2f2f2;
+  --color-text-muted: #b0b0b0;
+  --color-accent: #e67e22;
+  --color-accent-hover: #d35400;
+  --color-progress: #2ecc71;
+  --color-progress-track: #3a3a3a;
+  --color-code-bg: #1a1a1a;
+  --color-code-border: #333333;
+  --color-danger: #e74c3c;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+[data-theme='light'] {
+  /* Light Mode */
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f3f5;
+  --color-border: #e2e8f0;
+  --color-text-primary: #1a202c;
+  --color-text-muted: #64748b;
+  --color-accent: #e67e22;
+  --color-accent-hover: #d35400;
+  --color-progress: #2ecc71;
+  --color-progress-track: #e2e8f0;
+  --color-code-bg: #f1f5f9;
+  --color-code-border: #cbd5e1;
+  --color-danger: #e74c3c;
+}
