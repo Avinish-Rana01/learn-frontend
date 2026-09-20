@@ -27,14 +27,14 @@ The **Learn Frontend** delivers a modern, high-performance learning interface fo
 
 ## 🛠️ 2. Technology Stack
 
-| Layer | Technology | Details |
-| :--- | :--- | :--- |
-| **Framework** | **React 19 + TypeScript** | Strict type safety, functional components, custom hooks |
-| **Build Tool** | **Vite** | Lightning-fast Hot Module Replacement (HMR) and optimized ESM output |
-| **Routing** | **React Router** | Client-side routing with protected learner routes |
-| **PWA Engine** | **Vite Plugin PWA** | Web app manifest generation and Workbox service worker |
-| **Icons** | **Lucide React** | Clean, lightweight, consistent SVG developer icon set |
-| **Styling** | **Modern CSS / Design Tokens** | Sleek dark-mode developer palette (Slate-950, Indigo/Violet accents) |
+| Layer           | Technology                      | Details                                                                    |
+| :-------------- | :------------------------------ | :------------------------------------------------------------------------- |
+| **Framework**   | **React 19 + TypeScript**       | Strict type safety, functional components, custom hooks                    |
+| **Build Tool**  | **Vite**                        | Lightning-fast Hot Module Replacement (HMR) and optimized ESM output       |
+| **Routing**     | **React Router**                | Client-side routing with protected learner routes                          |
+| **PWA Engine**  | **Vite Plugin PWA**             | Web app manifest generation and Workbox service worker                     |
+| **Icons**       | **Lucide React**                | Clean, lightweight, consistent SVG developer icon set                      |
+| **Styling**     | **Modern CSS / Design Tokens**  | Sleek dark-mode developer palette (Slate-950, Indigo/Violet accents)       |
 | **HTTP Client** | **Fetch / Axios Service Layer** | Centralized API client with interceptors for auth and session invalidation |
 
 ---
@@ -114,38 +114,43 @@ learn-frontend/
 ## 🚀 6. Getting Started
 
 ### Prerequisites
-- **Node.js**: v18.0.0 or higher (Node v20+ recommended)
-- **npm** (or **pnpm** / **yarn**)
+
+- **Node.js**: v22.0.0 or higher (Node 22 LTS recommended)
+- **pnpm**: v10.0.0 or higher
 
 ### Installation & Development
+
 ```bash
 # 1. Clone the repository
 git clone https://github.com/Avinish-Rana01/learn-frontend.git
 cd learn-frontend
 
 # 2. Install dependencies
-npm install
+pnpm install
 
 # 3. Start local development server
-npm run dev
+pnpm dev
 ```
 
 The application will be live at `http://localhost:5173`.
 
-### Production Build
-```bash
-# Build production bundle with PWA assets
-npm run build
+### Available Scripts
 
-# Preview production build locally
-npm run preview
-```
+- `pnpm dev`: Start local Vite development server
+- `pnpm build`: Build production bundle and generate PWA assets
+- `pnpm preview`: Preview production build locally
+- `pnpm lint`: Run ESLint checks with accessibility rules
+- `pnpm typecheck`: Run TypeScript compiler typecheck (`tsc --noEmit`)
+- `pnpm test`: Run Vitest unit & component test suite
+- `pnpm format`: Format all code with Prettier
+- `pnpm format:check`: Verify formatting consistency with Prettier
 
 ---
 
 ## 🔗 7. Backend API Companion
 
 This frontend is designed to integrate with the **Learn Platform Backend API**:
+
 - **Repository**: [https://github.com/Avinish-Rana01/learn-backend](https://github.com/Avinish-Rana01/learn-backend)
 - **API Version**: `/api/v1`
 - **Default Port**: `http://localhost:4000`
@@ -155,6 +160,7 @@ This frontend is designed to integrate with the **Learn Platform Backend API**:
 ## 📄 8. Documentation Index
 
 For detailed architectural and design specifications, refer to the [`docs/`](./docs) folder:
+
 - [Frontend UI Consistency Rule (Charcoal & Orange)](./docs/ui_consistency_rule.md)
 - [PWA & Offline Architecture](./docs/pwa_offline.md)
 - [UI Components & UX Design](./docs/ui_components.md)

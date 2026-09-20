@@ -35,18 +35,21 @@
 ```
 
 ## 2. Multi-Client Compatibility Matrix
-| Requirement | Web PWA | Future Flutter Mobile |
-| :--- | :--- | :--- |
-| **Auth Transport** | `HttpOnly` Secure Cookie (primary) + Bearer token header | `Authorization: Bearer <token>` in header |
+
+| Requirement              | Web PWA                                                                       | Future Flutter Mobile                                                   |
+| :----------------------- | :---------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
+| **Auth Transport**       | `HttpOnly` Secure Cookie (primary) + Bearer token header                      | `Authorization: Bearer <token>` in header                               |
 | **Session Invalidation** | React global response interceptor redirects to login on `SESSION_INVALIDATED` | Dio/HTTP interceptor redirects to login screen on `SESSION_INVALIDATED` |
-| **Offline Behavior** | Service worker caches static UI shell and layout assets | Local app bundle contains UI code natively |
-| **Data Gating** | Un-enrolled content blocked by backend 403 Forbidden | Un-enrolled content blocked by backend 403 Forbidden |
-| **API Format** | Standard JSON `/api/v1/...` | Standard JSON `/api/v1/...` |
+| **Offline Behavior**     | Service worker caches static UI shell and layout assets                       | Local app bundle contains UI code natively                              |
+| **Data Gating**          | Un-enrolled content blocked by backend 403 Forbidden                          | Un-enrolled content blocked by backend 403 Forbidden                    |
+| **API Format**           | Standard JSON `/api/v1/...`                                                   | Standard JSON `/api/v1/...`                                             |
 
 ## 3. Shared Data Contracts
+
 All responses conform to a unified envelope:
 
 ### Success Response:
+
 ```json
 {
   "success": true,
@@ -60,6 +63,7 @@ All responses conform to a unified envelope:
 ```
 
 ### Error Response:
+
 ```json
 {
   "success": false,

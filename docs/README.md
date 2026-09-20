@@ -1,9 +1,11 @@
 # Frontend Architectural Plan & Specification
 
 ## 1. Overview
+
 The frontend is a modern, responsive, installable Progressive Web Application (PWA) built with React, TypeScript, and Vite. It serves as the primary learner portal for discovering, reading, practicing, and completing technical courses.
 
 ## 2. Technology Choices
+
 - **Build Tool**: Vite (fast HMR, optimized ESM bundle)
 - **UI Framework**: React 19+ / React 18 with TypeScript
 - **Routing**: React Router (DOM)
@@ -13,6 +15,7 @@ The frontend is a modern, responsive, installable Progressive Web Application (P
 - **Typography**: Clean monospace fonts for code blocks, Inter/system font for readable prose
 
 ## 3. Directory Structure (Proposed for Implementation)
+
 ```text
 frontend/
 ├── public/                   # PWA icons (192, 512, maskable), manifest, favicon

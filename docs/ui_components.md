@@ -1,11 +1,13 @@
 # Frontend UI Components & Learner Experience
 
 ## 1. Design Aesthetics
+
 - **Theme**: Premium developer-centric dark palette (Slate-950 background, Indigo/Violet accents, emerald progress indicators).
 - **Typography**: Crisp typography with monospace syntax highlighting for code snippets.
 - **Micro-Interactions**: Smooth transitions, progress completion rings, celebratory confetti upon passing quizzes or completing courses.
 
 ## 2. Key Component Hierarchy
+
 1. **Application Shell**:
    - `AppHeader`: Logo, navigation links, course search trigger, user avatar with active session badge, logout button.
    - `InstallPromptBanner`: PWA installation callout for compatible browsers.
