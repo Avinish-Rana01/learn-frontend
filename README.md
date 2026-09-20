@@ -155,6 +155,7 @@ This frontend is designed to integrate with the **Learn Platform Backend API**:
 ## 📄 8. Documentation Index
 
 For detailed architectural and design specifications, refer to the [`docs/`](./docs) folder:
+- [Frontend UI Consistency Rule (Charcoal & Orange)](./docs/ui_consistency_rule.md)
 - [PWA & Offline Architecture](./docs/pwa_offline.md)
 - [UI Components & UX Design](./docs/ui_components.md)
 - [Routing & State Architecture](./docs/routing_and_state.md)
