@@ -14,6 +14,7 @@ export interface CourseSummary {
   isFree: boolean;
   moduleCount: number;
   lessonCount: number;
+  isEnrolled?: boolean;
   createdAt: string;
 }
 
@@ -44,6 +45,7 @@ export interface CourseDetail {
   thumbnailUrl: string | null;
   level: string;
   isFree: boolean;
+  isEnrolled?: boolean;
   modules: ModuleDetail[];
 }
 
